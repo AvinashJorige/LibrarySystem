@@ -73,10 +73,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CoreEntity\CoreEntity.csproj">
-      <Project>{303a7648-0a10-493c-921a-cc4df4ccdd92}</Project>
-      <Name>CoreEntity</Name>
-    </ProjectReference>
     <ProjectReference Include="..\EntityCore\EntityCore.csproj">
       <Project>{967520a9-9093-49b7-b0e8-87c491810d6e}</Project>
       <Name>EntityCore</Name>
