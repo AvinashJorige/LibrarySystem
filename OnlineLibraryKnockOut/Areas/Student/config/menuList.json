@@ -1,0 +1,84 @@
+﻿{
+  "Student": [
+    {
+      "menuList": [
+        {
+          "id": "1",
+          "name": "books",
+          "label": "Books",
+          "action": "",
+          "icon": "fa fa-book",
+          "subMenuList": [
+            {
+              "id": "1",
+              "name": "book_list",
+              "label": "Books List",
+              "action": "",
+              "parent_id": "1"
+            },
+            {
+              "id": "2",
+              "name": "my_books",
+              "label": "My Books",
+              "action": "",
+              "parent_id": "1"
+            }
+          ]
+        },
+        {
+          "id": "2",
+          "name": "penalty",
+          "label": "Penalty",
+          "action": "",
+          "icon": "fa fa-money",
+          "subMenuList": [
+            {
+              "id": "1",
+              "name": "penalty_list",
+              "label": "Penalties List",
+              "action": "",
+              "parent_id": "2"
+            },
+            {
+              "id": "2",
+              "name": "my_penalties",
+              "label": "My Penalties",
+              "action": "",
+              "parent_id": "2"
+            }
+          ]
+        },
+        {
+          "id": "3",
+          "name": "reports",
+          "label": "Report",
+          "action": "",
+          "icon": "fa fa-bar-chart-o",
+          "subMenuList": [
+            {
+              "id": "1",
+              "name": "my_books",
+              "label": "My Books",
+              "action": "",
+              "parent_id": "3"
+            },
+             {
+              "id": "2",
+              "name": "my_penalties",
+              "label": "My Penalties",
+              "action": "",
+              "parent_id": "3"
+            },
+             {
+              "id": "2",
+              "name": "my_returns",
+              "label": "My Returned Books",
+              "action": "",
+              "parent_id": "3"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

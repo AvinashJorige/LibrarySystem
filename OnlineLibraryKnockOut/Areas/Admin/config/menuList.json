@@ -1,0 +1,156 @@
+﻿{
+  "Admin": [
+    {
+      "menuList": [
+        {
+          "id": "1",
+          "name": "publications",
+          "label": "Publications",
+          "icon": "fa fa-folder-o",
+          "action": "",
+          "subMenuList": [
+            {
+              "id": "1",
+              "name": "add_new_publications",
+              "label": "New Publication",
+              "action": "",
+              "parent_id": "1"
+            },
+            {
+              "id": "2",
+              "name": "modify_publications",
+              "label": "Modify Publications",
+              "action": "",
+              "parent_id": "1"
+            },
+            {
+              "id": "3",
+              "name": "list_publications",
+              "label": "Publications List",
+              "action": "",
+              "parent_id": "1"
+            }
+          ]
+        },
+        {
+          "id": "2",
+          "name": "books",
+          "label": "Books",
+          "icon" :  "fa fa-book",
+          "action": "",
+          "subMenuList": [
+            {
+              "id": "1",
+              "name": "add_new_book",
+              "label": "Add book",
+              "action": "",
+              "parent_id": "2"
+            },
+            {
+              "id": "2",
+              "name": "modify_books",
+              "label": "Modify Books",
+              "action": "",
+              "parent_id": "2"
+            },
+            {
+              "id": "2",
+              "name": "list_books",
+              "label": "List Books",
+              "action": "",
+              "parent_id": "2"
+            }
+          ]
+        },
+        {
+          "id": "3",
+          "name": "student",
+          "label": "Student",
+          "icon" :  "fa fa-users",
+          "action": "",
+          "subMenuList": [
+            {
+              "id": "1",
+              "name": "add_new_student",
+              "label": "Add Student",
+              "action": "",
+              "parent_id": "3"
+            },
+            {
+              "id": "2",
+              "name": "modify_students",
+              "label": "Modify Students",
+              "action": "",
+              "parent_id": "3"
+            },
+            {
+              "id": "2",
+              "name": "list_students",
+              "label": "List Students",
+              "action": "",
+              "parent_id": "3"
+            }
+          ]
+        },
+        {
+          "id": "4",
+          "name": "reports",
+          "label": "Reports",
+          "action": "",
+          "icon":"fa fa-bar-chart-o"
+        },
+        {
+          "id": "5",
+          "name": "penalty",
+          "label": "Penalty",
+          "action": "",
+          "icon": "fa fa-money",
+          "subMenuList": [
+           {
+              "id": "1",
+              "name": "add_new_penalty",
+              "label": "Add Penalty",
+              "action": "",
+              "parent_id": "5"
+            },
+            {
+              "id": "2",
+              "name": "modify_penalty",
+              "label": "Modify Penalties",
+              "action": "",
+              "parent_id": "5"
+            },
+            {
+              "id": "2",
+              "name": "list_penalty",
+              "label": "List Penalties",
+              "action": "",
+              "parent_id": "5"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "Student": [
+    {
+      "menuList": [
+        {
+          "id": "",
+          "name": "",
+          "label": "",
+          "action": ""
+        }
+      ],
+      "subMenuList": [
+        {
+          "id": "",
+          "name": "",
+          "label": "",
+          "action": "",
+          "parent_id": ""
+        }
+      ]
+    }
+  ]
+}
