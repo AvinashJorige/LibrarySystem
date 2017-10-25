@@ -8,7 +8,7 @@ using BusinessEntity.Implementation;
 using EntityCore.Mappings;
 
 namespace Utility
-{
+{ 
     public class AdminUtility
     {
         private IAdminServices<AdminMst> _adminService;
