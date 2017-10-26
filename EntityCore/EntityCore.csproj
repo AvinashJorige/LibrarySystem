@@ -41,6 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\AdminModelCore.cs" />
+    <Compile Include="Core\BookModelCore.cs" />
+    <Compile Include="Core\BranchModelCore.cs" />
+    <Compile Include="Core\PenaltyModelCore.cs" />
+    <Compile Include="Core\PublicationModelCore.cs" />
+    <Compile Include="Core\RentModelCore.cs" />
+    <Compile Include="Core\StudentModelCore.cs" />
+    <Compile Include="Core\UserModelCore.cs" />
     <Compile Include="Interface\ILibrary.cs" />
     <Compile Include="Interface\ILibraryClass.cs" />
     <Compile Include="Mappings\AdminMst.cs" />

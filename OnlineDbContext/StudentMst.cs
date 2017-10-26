@@ -43,6 +43,8 @@ namespace OnlineDbRepo
 
         [StringLength(500)]
         public string Image { get; set; }
+        [StringLength(1000)]
+        public string HashKey { get; set; }
 
         public DateTime? EntryDate { get; set; }
     }

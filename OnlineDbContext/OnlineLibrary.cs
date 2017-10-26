@@ -13,6 +13,11 @@ namespace OnlineDbRepo
         {
         }
 
+        static OnlineLibrary()
+        {
+            Database.SetInitializer<OnlineLibrary>(null);
+        }
+
         public DbSet<EntityCore.Mappings.AdminMst> AdminMst { get; set; }
         public DbSet<EntityCore.Mappings.BookMst> BookMst { get; set; }
         public DbSet<EntityCore.Mappings.BranchMst> BranchMst { get; set; }
@@ -23,9 +28,7 @@ namespace OnlineDbRepo
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            Database.SetInitializer<OnlineLibrary>(null);
             base.OnModelCreating(modelBuilder);
-
             modelBuilder.Entity<EntityCore.Mappings.AdminMst>();
             modelBuilder.Entity<EntityCore.Mappings.BookMst>();
             modelBuilder.Entity<EntityCore.Mappings.BranchMst>();

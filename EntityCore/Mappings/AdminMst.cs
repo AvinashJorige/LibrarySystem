@@ -26,6 +26,9 @@
 
         public string Img { get; set; }
 
+        [StringLength(1000)]
+        public string HashKey { get; set; }
+
         public DateTime? Register_Date { get; set; }
     }
 }
