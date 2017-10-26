@@ -5,7 +5,7 @@
     using System.ComponentModel.DataAnnotations.Schema;
 
     [Table("AdminMst")]
-    public class AdminMst 
+    public partial class AdminMst : Interface.ILibrary
     {
         [Key]
         public int AID { get; set; }

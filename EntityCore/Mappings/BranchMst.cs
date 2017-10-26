@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace EntityCore.Mappings
 {
     [Table("BranchMst")]
-    public partial class BranchMst 
+    public partial class BranchMst : Interface.ILibrary
     {
         [Key]
         public int BranchID { get; set; }

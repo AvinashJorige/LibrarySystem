@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BusinessEntity.Interface;
 using OnlineDbRepo.Implementation;
 
 namespace BusinessEntity.Implementation
 {
-    public class AdminServices<T> : IAdminServices<T> where T : class
+    public class GenericService<T> : IGenericService<T> where T : class
     {
         private IUnitOfWork<T> _iUnitOfWork;
-        
-        public AdminServices()
+
+        public GenericService()
         {
             _iUnitOfWork = new UnitOfWork<T>();
         }
@@ -33,7 +31,7 @@ namespace BusinessEntity.Implementation
             List<T> _returnList = new List<T>();
             try
             {
-                _returnList = _iUnitOfWork.ModelRepository.Get(filter, orderBy, includes); 
+                _returnList = _iUnitOfWork.ModelRepository.Get(filter, orderBy, includes);
             }
             catch (Exception ex)
             {

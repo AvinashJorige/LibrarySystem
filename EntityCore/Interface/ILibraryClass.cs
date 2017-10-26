@@ -1,21 +1,19 @@
-﻿using System;
+﻿using EntityCore.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BusinessEntity.Interface
+namespace EntityCore.Interface
 {
-   public interface IAdminServices<TEntity>
-    {
-        /// <summary>
-        /// Get all entities from db
-        /// </summary>
-        /// <param name="filter"></param>
-        /// <param name="orderBy"></param>
-        /// <param name="includes"></param>
-        /// <returns></returns>
+    public interface ILibraryClass<TEntity>
+    {/// <summary>
+     /// Get all entities from db
+     /// </summary>
+     /// <param name="filter"></param>
+     /// <param name="orderBy"></param>
+     /// <param name="includes"></param>
+     /// <returns></returns>
         List<TEntity> Get(
             Expression<Func<TEntity, bool>> filter = null,
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,

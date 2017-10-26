@@ -1,6 +1,4 @@
-﻿using CoreEntity;
-using CoreEntity.Mappings;
-using System;
+﻿using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading;

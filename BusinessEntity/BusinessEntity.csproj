@@ -51,8 +51,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Implementation\AdminServices.cs" />
-    <Compile Include="Interface\IAdminServices.cs" />
+    <Compile Include="ConcreteFactory\ConcreteGenericServiceFactory.cs" />
+    <Compile Include="ConcreteFactory\ConcreteModelFactory.cs" />
+    <Compile Include="Factory\FactoryGenericClassPattern.cs" />
+    <Compile Include="Factory\FactoryModelPattern.cs" />
+    <Compile Include="Factory\GenericFactory.cs" />
+    <Compile Include="Factory\GenericModelFactory.cs" />
+    <Compile Include="Implementation\GenericService.cs" />
+    <Compile Include="Interface\IGenericService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -58,7 +58,6 @@
     <Compile Include="Implementation\IDataAccess.cs" />
     <Compile Include="Implementation\IUnitOfWork.cs" />
     <Compile Include="Implementation\UnitOfWork.cs" />
-    <Compile Include="OnlineDBContext.cs" />
     <Compile Include="OnlineLibrary.cs" />
     <Compile Include="PenaltyMst.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

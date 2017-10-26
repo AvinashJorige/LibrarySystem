@@ -5,7 +5,7 @@
     using System.ComponentModel.DataAnnotations.Schema;
 
     [Table("RentMst")]
-    public partial class RentMst
+    public partial class RentMst : Interface.ILibrary
     {
         [Key]
         public int RID { get; set; }

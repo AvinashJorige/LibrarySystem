@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace EntityCore.Mappings
 {
     [Table("BookMst")]
-    public partial class BookMst
+    public partial class BookMst : Interface.ILibrary
     {
         [Key]
         public int BookID { get; set; }

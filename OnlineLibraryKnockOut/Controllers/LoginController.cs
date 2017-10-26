@@ -25,7 +25,7 @@ namespace OnlineLibraryKnockOut.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (new AdminUtility().LoginValidation(user.Email_Id, user.Password, user.Type))
+                if (new GeneralLoginHelper().LoginValidation(user.Email_Id, user.Password, user.Type))
                 {
                     FormsAuthentication.SetAuthCookie(user.Email_Id, true);
                     if(user.Type == "Librarian")

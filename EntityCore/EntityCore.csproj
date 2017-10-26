@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interface\ILibrary.cs" />
+    <Compile Include="Interface\ILibraryClass.cs" />
     <Compile Include="Mappings\AdminMst.cs" />
     <Compile Include="Mappings\BookMst.cs" />
     <Compile Include="Mappings\BranchMst.cs" />
