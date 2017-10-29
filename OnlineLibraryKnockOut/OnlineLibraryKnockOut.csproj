@@ -173,7 +173,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\scripts\BranchScript.js" />
-    <Content Include="Areas\Admin\scripts\KnockoutBinding.js" />
+    <Content Include="Scripts\KnockoutBinding.js" />
     <Content Include="Areas\Admin\scripts\menuDisplay.js" />
     <Content Include="Areas\Student\scripts\menuDisplay.js" />
     <Content Include="bootstrap\css\bootstrap.css" />

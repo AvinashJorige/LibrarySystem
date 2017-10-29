@@ -23,11 +23,7 @@
     {
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true, "New Branch error.");
-        <script id="customMessageTemplate" type="text/html">
-            <!--
-            -->
-            <em class="customMessage" data-bind="validationMessage: field"></em>
-        </script>
+       
             <div class="col-md-8" id="Add_new_Branch">
                 <!-- Box Comment -->
                 <div class="box box-widget">
@@ -45,17 +41,17 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body" style="display: block;">
-                        <div class="form-group has-error">
+                        <div class="form-group" data-bind="validationElement: BranchScripts.BranchName">
                             <label for="BranchName" class="col-sm-3 control-label">Branch Name</label>
-                            <div class="col-sm-9" data-bind="validationOptions: { messageTemplate: 'customMessageTemplate' }">
-                                <input type="text" class="form-control" name="BranchName" data-bind="value: BranchScripts.BranchName" required="required" placeholder="Branch Name">
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="BranchName" data-bind="value: BranchScripts.BranchName, valueUpdate: 'afterkeydown'" placeholder="Branch Name">
                             </div>
                         </div>
                     </div>
                     <!-- /.box-body -->
                     <!-- /.box-footer -->
                     <div class="box-footer" style="display: block;">
-                        <button type="reset" class="btn btn-default">Cancel</button>
+                        <button type="reset" data-bind="click: BranchScripts.clear" class="btn btn-default">Cancel</button>
                         <button type="submit" data-bind="click: BranchScripts.validate" class="btn btn-info pull-right">Submit</button>
                     </div>
                     <!-- /.box-footer -->
