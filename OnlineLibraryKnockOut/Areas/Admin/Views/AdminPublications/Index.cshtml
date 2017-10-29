@@ -1,0 +1,63 @@
+﻿@model EntityCore.Core.PublicationModelCore
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutBlankPage.cshtml";
+}
+
+@section scripts
+{
+    <script src="@Url.Content("~/Areas/Admin/scripts/menuDisplay.js")"></script>
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Publication
+    </h1>
+</section>
+<!-- Main content -->
+<section class="content">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "Adding new Publication error.");
+        <form method="post">
+            <div class="col-md-8">
+                <!-- Box Comment -->
+                <div class="box box-widget">
+                    <div class="box-header with-border">
+                        <div class="user-block">
+                            <b>Add Publication</b>
+                        </div>
+                        <!-- /.user-block -->
+                        <div class="box-tools">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                <i class="fa fa-minus"></i>
+                            </button>
+                        </div>
+                        <!-- /.box-tools -->
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body" style="display: block;">
+                        <div class="form-group">
+                            <label for="publication" class="col-sm-3 control-label">Publication Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="Publication" data-bind="value: Publication" placeholder="Publication Name">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                    <!-- /.box-footer -->
+                    <div class="box-footer" style="display: block;">
+                        <button type="reset" class="btn btn-default">Cancel</button>
+                        <button type="submit" class="btn btn-info pull-right">Submit</button>
+                    </div>
+                    <!-- /.box-footer -->
+                </div>
+                <!-- /.box -->
+            </div>
+        </form>
+    }
+</section>
+<!-- /.content -->

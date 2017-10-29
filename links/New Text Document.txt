@@ -3,3 +3,11 @@ https://stackoverflow.com/questions/9705078/are-there-any-knockoutjs-page-routin
 
 
 https://stackoverflow.com/questions/6553935/ef-code-first-invalid-column-name-discriminator-but-no-inheritance?answertab=votes#tab-top
+
+
+https://github.com/Knockout-Contrib/Knockout-Validation
+
+
+validation error demo KO
+-----------------------
+http://jsfiddle.net/KHFn8/5424/

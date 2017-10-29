@@ -1,0 +1,67 @@
+﻿@model EntityCore.Core.BranchModelCore
+
+@{
+    ViewBag.Title = "Branch";
+    Layout = "~/Views/Shared/_LayoutBlankPage.cshtml";
+}
+
+@section scripts
+{
+    <script src="@Url.Content("~/Areas/Admin/scripts/menuDisplay.js")"></script>
+    <script src="@Url.Content("~/Areas/Admin/scripts/BranchScript.js")"></script>
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Branch
+    </h1>
+</section>
+<!-- Main content -->
+<section class="content">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "New Branch error.");
+        <script id="customMessageTemplate" type="text/html">
+            <!--
+            -->
+            <em class="customMessage" data-bind="validationMessage: field"></em>
+        </script>
+            <div class="col-md-8" id="Add_new_Branch">
+                <!-- Box Comment -->
+                <div class="box box-widget">
+                    <div class="box-header with-border">
+                        <div class="user-block">
+                            <b>Add Branch</b>
+                        </div>
+                        <!-- /.user-block -->
+                        <div class="box-tools">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                <i class="fa fa-minus"></i>
+                            </button>
+                        </div>
+                        <!-- /.box-tools -->
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body" style="display: block;">
+                        <div class="form-group has-error">
+                            <label for="BranchName" class="col-sm-3 control-label">Branch Name</label>
+                            <div class="col-sm-9" data-bind="validationOptions: { messageTemplate: 'customMessageTemplate' }">
+                                <input type="text" class="form-control" name="BranchName" data-bind="value: BranchScripts.BranchName" required="required" placeholder="Branch Name">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                    <!-- /.box-footer -->
+                    <div class="box-footer" style="display: block;">
+                        <button type="reset" class="btn btn-default">Cancel</button>
+                        <button type="submit" data-bind="click: BranchScripts.validate" class="btn btn-info pull-right">Submit</button>
+                    </div>
+                    <!-- /.box-footer -->
+                </div>
+                <!-- /.box -->
+            </div>
+    }
+</section>
+<!-- /.content -->

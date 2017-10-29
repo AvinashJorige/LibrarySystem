@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EntityCore.Mappings
@@ -11,5 +12,7 @@ namespace EntityCore.Mappings
 
         [StringLength(50)]
         public string BranchName { get; set; }
+        public DateTime? Modified_date { get; set; }
+        public bool isActive { get; set; }
     }
 }

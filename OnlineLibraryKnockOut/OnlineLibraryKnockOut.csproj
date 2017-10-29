@@ -157,7 +157,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminBranchController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminHomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminPublicationsController.cs" />
     <Compile Include="Areas\Student\Controllers\stdHomeController.cs" />
     <Compile Include="Areas\Student\StudentAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -170,6 +172,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\scripts\BranchScript.js" />
+    <Content Include="Areas\Admin\scripts\KnockoutBinding.js" />
     <Content Include="Areas\Admin\scripts\menuDisplay.js" />
     <Content Include="Areas\Student\scripts\menuDisplay.js" />
     <Content Include="bootstrap\css\bootstrap.css" />
@@ -1175,6 +1179,8 @@
     <Content Include="Areas\Student\Views\web.config" />
     <Content Include="Areas\Student\Views\stdHome\Index.cshtml" />
     <Content Include="Areas\Student\config\menuList.json" />
+    <Content Include="Areas\Admin\Views\AdminPublications\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminBranch\newBranch.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -1211,6 +1217,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\Publications\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\Student\Models\" />
     <Folder Include="Areas\Student\Views\Shared\" />
