@@ -1,11 +1,7 @@
-﻿function masterVM () {
-   
-    if (document.getElementById('sideMenuContainer')) {
-        this.sideMenu = new MenuDisplayViewModel();
-    }
-    if (document.getElementById('Add_new_Branch')) {
-        this.BranchScripts = new BranchScripts();
-    }
-};
+﻿var bindObjects = {
+    sideMenu: document.getElementById('sideMenuContainer') ? new MenuDisplayViewModel() : null,
+    BranchScripts: document.getElementById('Add_new_Branch') ? new branchFnc() : null
+}
 
-ko.applyBindings(new masterVM());
+
+ko.applyBindings(bindObjects);

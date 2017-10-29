@@ -1,12 +1,12 @@
-﻿function BranchScripts() {
-    ko.validation.rules.pattern.message = 'Invalid.';
-    ko.validation.init({
-        messageTemplate: null,
-        errorElementClass: 'has-error',
-        errorMessageClass: 'help-block',
-        decorateInputElement: true
-    }, true);
+﻿ko.validation.rules.pattern.message = 'Invalid.';
+ko.validation.init({
+    messageTemplate: null,
+    errorElementClass: 'has-error',
+    errorMessageClass: 'help-block',
+    decorateInputElement: true
+}, true);
 
+var branchFnc = function () {
     this.BranchName = ko.observable();
 
     this.viewModel = ko.validatedObservable([
@@ -19,8 +19,8 @@
     this.validate = function () {
         if (!this.BranchScripts.viewModel.isValid()) {
             this.BranchScripts.viewModel.errors.showAllMessages()
-        } 
-        else  {
+        }
+        else {
             alert('good job');
         }
     }
@@ -29,7 +29,4 @@
         this.BranchScripts.BranchName(null);
         this.BranchScripts.BranchName.isModified(false);
     }
-
-
-
 }

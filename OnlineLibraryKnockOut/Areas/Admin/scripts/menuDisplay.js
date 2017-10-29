@@ -1,7 +1,7 @@
 ﻿var self = null;
 
 
-function MenuDisplayViewModel() {
+var MenuDisplayViewModel = function() {
     self = this;
     self.menuData = ko.observable(null);
     GetCallProcess("/Areas/Admin/config/menuList.json", onSuccess);
