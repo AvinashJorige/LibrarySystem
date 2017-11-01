@@ -18,15 +18,6 @@ namespace BusinessEntity.Factory
 
             return objK;
         }
-        //    public IGenericService<T> CreateInstance()
-        //    {
-        //        IGenericService<T> objK;
-
-        //        objK = new GenericService<T>();
-
-        //        return objK;
-        //    }
-        //}
     }
 
 }

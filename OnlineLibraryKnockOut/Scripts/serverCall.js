@@ -6,6 +6,7 @@
         url: url,
         data: JSON.stringify(parameters),
         contentType: 'application/json;',
+        async: false,
         dataType: 'json',
         success: successCallback,
         error: function (xhr, textStatus, errorThrown) {
@@ -20,6 +21,7 @@ function GetCallProcess(url, successCallback) {
     $.ajax({
         type: 'GET',
         url: url,
+        async: false,
         contentType: 'application/json;',
         dataType: 'json',
         success: successCallback,

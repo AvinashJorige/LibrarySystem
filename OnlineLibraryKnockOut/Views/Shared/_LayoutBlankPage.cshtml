@@ -17,6 +17,11 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+    <link href="~/Content/customStyles.css" rel="stylesheet" />
+    <link href="~/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" />
+    <link href="~/plugins/datatables/extensions/Responsive/css/dataTables.responsive.css" rel="stylesheet" />
+    @*<link href="~/plugins/dynatable/jquery.dynatable.css" rel="stylesheet" />*@
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -430,6 +435,22 @@
     <script src="../../dist/js/demo.js"></script>
     <script src="~/Scripts/knockout-3.4.2.js"></script>
     <script src="https://cdn.jsdelivr.net/knockout.validation/2.0.3/knockout.validation.min.js"></script>
+
+    <!-- KnockoutJS Mapping http://knockoutjs.com/documentation/plugins-mapping.html -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout.mapping/2.4.1/knockout.mapping.js"></script>
+
+    <!-- jQuery DataTables http://datatables.net -->
+    <script src="~/plugins/datatables/jquery.dataTables.min.js"></script>
+
+    <!-- Bootstrap DataTables http://www.datatables.net/manual/styling/bootstrap -->
+    <script src="~/plugins/datatables/dataTables.bootstrap.min.js"></script>
+
+    <!-- Responsive DataTables http://www.datatables.net/extensions/responsive/ -->
+    <script src="~/plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
+
+    @*<script src="~/plugins/dynatable/jquery.dynatable.js"></script>*@
+
+
     <script src="~/Scripts/serverCall.js"></script>
     @*<script src="~/Areas/Admin/scripts/serverCall.js"></script>
         <script src="~/Areas/Admin/scripts/menuDisplay.js"></script>*@

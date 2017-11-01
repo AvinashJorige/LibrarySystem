@@ -6,7 +6,7 @@
           "id": "0",
           "name": "dashboard",
           "label": "Dashboard",
-          "icon": "fa fa-folder-o",
+          "icon": "fa fa-dashboard",
           "action": "/Admin/AdminHome"
         },
         {
@@ -77,17 +77,10 @@
           "action": "#",
           "subMenuList": [
             {
-              "id": "1",
-              "name": "add_new_branch",
-              "label": "Add Branch",
-              "action": "/Admin/AdminBranch/newBranch",
-              "parent_id": "3"
-            },
-            {
               "id": "2",
               "name": "modify_branch",
               "label": "Modify Branchs",
-              "action": "#",
+              "action": "/Admin/AdminBranch/BranchList",
               "parent_id": "3"
             },
             {

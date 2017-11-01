@@ -31,40 +31,44 @@
         </div>
 
 
-            <div class="col-md-8" id="Add_new_Branch">
-                <!-- Box Comment -->
-                <div class="box box-widget">
-                    <div class="box-header with-border">
-                        <div class="user-block">
-                            <b>Add Branch</b>
-                        </div>
-                        <!-- /.user-block -->
-                        <div class="box-tools">
-                            <button type="button" class="btn btn-box-tool" data-widget="collapse">
-                                <i class="fa fa-minus"></i>
-                            </button>
-                        </div>
-                        <!-- /.box-tools -->
+        <div class="col-md-8" id="Add_new_Branch">
+            <!-- Box Comment -->
+            <div class="box box-widget">
+                <div class="box-header with-border">
+                    <div class="user-block">
+                        <b>Add Branch</b>
                     </div>
-                    <!-- /.box-header -->
-                    <div class="box-body" style="display: block;">
-                        <div class="form-group" data-bind="validationElement: BranchScripts.BranchName">
-                            <label for="BranchName" class="col-sm-3 control-label">Branch Name</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="BranchName" data-bind="value: BranchScripts.BranchName, valueUpdate: 'afterkeydown'" placeholder="Branch Name">
+                    <!-- /.user-block -->
+                    <div class="box-tools">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                    </div>
+                    <!-- /.box-tools -->
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body" style="display: block;">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group" data-bind="validationElement: BranchScripts.BranchName">
+                                <label for="BranchName" class="col-sm-3 control-label">Branch Name</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" name="BranchName" data-bind="value: BranchScripts.BranchName, valueUpdate: 'afterkeydown'" placeholder="Branch Name">
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <!-- /.box-body -->
-                    <!-- /.box-footer -->
-                    <div class="box-footer" style="display: block;">
-                        <button type="reset" data-bind="click: BranchScripts.clear" class="btn btn-default">Cancel</button>
-                        <button type="submit" data-bind="click: BranchScripts.validate" class="btn btn-info pull-right">Submit</button>
-                    </div>
-                    <!-- /.box-footer -->
                 </div>
-                <!-- /.box -->
+                <!-- /.box-body -->
+                <!-- /.box-footer -->
+                <div class="box-footer" style="display: block;">
+                    <button type="reset" data-bind="click: BranchScripts.clear" class="btn btn-default">Cancel</button>
+                    <button type="submit" data-bind="click: BranchScripts.validate" class="btn btn-info pull-right">Submit</button>
+                </div>
+                <!-- /.box-footer -->
             </div>
+            <!-- /.box -->
+        </div>
     }
 </section>
 <!-- /.content -->

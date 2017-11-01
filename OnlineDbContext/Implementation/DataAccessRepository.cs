@@ -21,7 +21,7 @@ namespace OnlineDbRepo.Implementation
         public DataAccessRepository(DbContext context)
         {
             this.context = context;
-            this.dbSet = context.Set<TEntity>();
+           dbSet = context.Set<TEntity>();
         }
 
         public virtual List<TEntity> Get(Expression<Func<TEntity, bool>> filter = null, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null, params Expression<Func<TEntity, object>>[] includes)
@@ -70,7 +70,14 @@ namespace OnlineDbRepo.Implementation
 
         public virtual void Insert(TEntity entity)
         {
-            dbSet.Add(entity);
+            try
+            {
+                dbSet.Add(entity);
+            }
+            catch (Exception ex)
+            {
+                var rcc = ex;
+            }
         }
 
         public virtual void Update(TEntity entity)

@@ -16,25 +16,6 @@ namespace BusinessEntity.ConcreteFactory
         public override IGenericService<T> genericServiceFactory()
         {
             return new FactoryGenericClassPattern<T>().CreateInstance();
-            //switch (type)
-            //{
-            //    case "AdminMst":
-            //        return new FactoryGenericClassPattern<AdminMst>().CreateInstance();
-            //    case "StudentMst":
-            //        return new FactoryGenericClassPattern<StudentMst>().CreateInstance();
-            //    case "BookMst":
-            //        return new FactoryGenericClassPattern<BookMst>().CreateInstance();
-            //    case "BranchMst":
-            //        return new FactoryGenericClassPattern<BranchMst>().CreateInstance();
-            //    case "PenaltyMst":
-            //        return new FactoryGenericClassPattern<PenaltyMst>().CreateInstance();
-            //    case "PublicationMst":
-            //        return new FactoryGenericClassPattern<PublicationMst>().CreateInstance();
-            //    case "RentMst":
-            //        return new FactoryGenericClassPattern<RentMst>().CreateInstance();
-            //    default:
-            //        throw new ApplicationException(string.Format("Type '{0}' cannot be created", type));
-            //}
         }
     }
 }

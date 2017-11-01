@@ -10,8 +10,6 @@ namespace Utility
 {
     public class GeneralLoginHelper
     {
-
-
         public GeneralLoginHelper()
         {
         }

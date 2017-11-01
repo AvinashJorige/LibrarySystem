@@ -53,6 +53,7 @@ namespace BusinessEntity.Implementation
         public void Insert(T entity)
         {
             _iUnitOfWork.ModelRepository.Insert(entity);
+            _iUnitOfWork.Save();
         }
 
         public IQueryable<T> Query(System.Linq.Expressions.Expression<Func<T, bool>> filter = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null)

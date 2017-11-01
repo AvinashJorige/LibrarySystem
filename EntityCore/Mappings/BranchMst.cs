@@ -13,6 +13,12 @@ namespace EntityCore.Mappings
         [StringLength(50)]
         public string BranchName { get; set; }
         public DateTime? Modified_date { get; set; }
-        public bool isActive { get; set; }
+
+        public BranchMst()
+        {
+            Modified_date = DateTime.Now;
+        }
+
+        public bool? isActive { get; set; }
     }
 }
