@@ -18,24 +18,22 @@
     </h1>
 </section>
 <!-- Main content -->
-<section class="content">
+<section class="content" id="Add_new_Branch">
     <form method="get">        
-        <!-- ko if: BranchList.errorMessage != null -->
+        <!-- ko if: BranchScripts.errorMessage -->
             <div class="alert alert-warning alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                 <h4><i class="icon fa fa-warning"></i> Alert!</h4>
-                  <!-- ko text: errorMessage --><!-- /ko-->
+                  <!-- ko text: BranchScripts.errorMessage --><!-- /ko-->
             </div>
         <!-- /ko -->
-
-        <!-- ko if: BranchList.successMessage != null -->
+        <!-- ko if: BranchScripts.successMessage -->
             <div class="alert alert-success alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                 <h4><i class="icon fa fa-check"></i> Alert!</h4>
-                <!-- ko text: successMessage --><!-- /ko-->
+                <!-- ko text: BranchScripts.successMessage --><!-- /ko-->
             </div>
         <!-- /ko -->
-
 
         <div class="col-md-12" id="Branch_list_display">
             <!-- Box Comment -->
@@ -65,13 +63,14 @@
                                     <th />
                                 </tr>
                             </thead>
-                            <tbody data-bind="foreach: BranchList.arrayObjList">                                
+                            <tbody data-bind="foreach: BranchScripts.arrayObjList">
+                                
                                 <tr>
                                     <td data-bind="text: $index"><span style="visibility:hidden" data-bind="text: $data.BrchId"></span></td>
                                     <td><span data-bind="text: $data.BrchName"></span></td>
                                     <td><span data-bind="text: $data.BksTotal"></span></td>
                                     <td><span data-bind="text: $data.StdTotal"></span></td>
-                                    <td><a href="#" data-bind="click: $root.BranchList.EditForm">Edit</a></td>
+                                    <td><a href="#" data-bind="click: $root.BranchScripts.EditForm">Edit</a></td>
                                 </tr>
                                 
                             </tbody>
@@ -91,7 +90,7 @@
         </div>
 
         <!-- Modal -->
-        <div id="Add_new_Branch">
+        <div>
             <div class="modal fade" id="newBranch" role="dialog">
                 <div class="modal-dialog">
 

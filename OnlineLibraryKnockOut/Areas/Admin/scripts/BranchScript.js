@@ -8,19 +8,19 @@ ko.validation.init({
 
 var branchFnc = function () {
     var self = this;
-    self.BranchName = ko.observable();
-    self.successMessage = ko.observable();
-    self.errorMessage = ko.observable();
+    this.BranchName = ko.observable();
+    this.successMessage = ko.observable();
+    this.errorMessage = ko.observable();
 
-    self.viewModel = ko.validatedObservable([
-    self.BranchName.extend({
+    this.viewModel = ko.validatedObservable([
+    this.BranchName.extend({
         required: {
             message: "Please enter branch name"
         }
     })]);
 
 
-    self.validate = function () {
+    this.validate = function () {
         if (!this.BranchScripts.viewModel.isValid()) {
             this.BranchScripts.viewModel.errors.showAllMessages()
         }
@@ -37,11 +37,10 @@ var branchFnc = function () {
                     var branchList = fetchBranchList();
                     var onlyInA = [];
                     var onlyInB = [];
-                    onlyInA = $parent.BranchList.arrayObjList().filter(comparer(branchList));
-                    onlyInB = branchList.filter(comparer($parent.BranchList.arrayObjList()));
+                    onlyInA = $parent.BranchScripts.arrayObjList().filter(comparer(branchList));
+                    onlyInB = branchList.filter(comparer($parent.BranchScripts.arrayObjList()));
 
-                    //$parent.BranchList.arrayObjList().push((onlyInA.concat(onlyInB))[0]);
-                    $parent.BranchList.arrayObjList((branchList));
+                    $parent.BranchScripts.arrayObjList((branchList));
                     $('#newBranch').modal('hide');
 
                     $parent.BranchScripts.BranchName(null);
@@ -58,13 +57,14 @@ var branchFnc = function () {
         this.BranchScripts.BranchName(null);
         this.BranchScripts.BranchName.isModified(false);
     }
-}
+//}
 
-var branchListFnc = function () {
-    var self = this;
+//var branchListFnc = function () {
+    // var self = this;
+
     var listData = fetchBranchList();
-    self.arrayObjList = ko.observableArray();
-    self.arrayObjList = (listData);
+    this.arrayObjList = ko.observableArray();
+    this.arrayObjList(listData);
     $("#branchLists").DataTable();
 
     this.EditForm = function (branchInfo) {
