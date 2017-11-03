@@ -15,11 +15,12 @@ namespace BusinessEntity.Implementation
             _iUnitOfWork = new UnitOfWork<T>();
         }
 
-        public void Delete(object id)
+        public void Delete(int id)
         {
             try
             {
                 _iUnitOfWork.ModelRepository.Delete(id);
+                _iUnitOfWork.Save();
             }
             catch (Exception ex)
             {
@@ -73,6 +74,7 @@ namespace BusinessEntity.Implementation
         public void Update(T entity)
         {
             _iUnitOfWork.ModelRepository.Update(entity);
+            _iUnitOfWork.Save();
         }
     }
 }

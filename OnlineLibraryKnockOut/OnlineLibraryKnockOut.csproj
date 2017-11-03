@@ -1186,6 +1186,8 @@
     <Content Include="Areas\Admin\Views\AdminPublications\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AdminBranch\newBranch.cshtml" />
     <Content Include="Areas\Admin\Views\AdminBranch\BranchList.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminBranch\BranchInfoList.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminBranch\BranchListarchevie.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

@@ -60,6 +60,6 @@ namespace EntityCore.Interface
         /// Delete entity from db by primary key
         /// </summary>
         /// <param name="id"></param>
-        void Delete(object id);
+        void Delete(int id);
     }
 }

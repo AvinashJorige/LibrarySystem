@@ -86,7 +86,7 @@ namespace OnlineDbRepo.Implementation
             context.Entry(entity).State = EntityState.Modified;
         }
 
-        public virtual void Delete(object id)
+        public virtual void Delete(int id)
         {
             TEntity entityToDelete = dbSet.Find(id);
             if (context.Entry(entityToDelete).State == EntityState.Detached)

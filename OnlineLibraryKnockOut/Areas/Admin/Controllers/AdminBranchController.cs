@@ -19,6 +19,18 @@ namespace OnlineLibraryKnockOut.Areas.Admin.Controllers
         }
 
         [HttpGet]
+        public ActionResult BranchInfoList()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult BranchListarchevie()
+        {
+            return View();
+        }
+
+        [HttpGet]
         public ActionResult BranchList()
         {
             return View();
@@ -48,34 +60,54 @@ namespace OnlineLibraryKnockOut.Areas.Admin.Controllers
             _branchListObjAreaModel.BookList = _iLibraryBookMst.Get();
             _branchListObjAreaModel.StudentList = _iLibraryStudentMst.Get();
 
-            return Json( JsonConvert.SerializeObject(_branchListObjAreaModel), JsonRequestBehavior.AllowGet); // return Json(new { branchData = _branchListObjAreaModel }, JsonRequestBehavior.AllowGet);
+            return Json(JsonConvert.SerializeObject(_branchListObjAreaModel), JsonRequestBehavior.AllowGet); // return Json(new { branchData = _branchListObjAreaModel }, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
-        public JsonResult newBranch(string _branchName)
+        public JsonResult BranchModification(string _branchName, string _branchId, string _updationType)
         {
             var obj = new { status = false, value = string.Empty, error = string.Empty };
             try
             {
                 BranchMst _branchMst = new BranchMst();
-                if(!string.IsNullOrEmpty(_branchName))
+                IGenericService<BranchMst> _genericService = new GenericService<BranchMst>();
+                string returnValue = string.Empty;
+
+                _branchMst.BranchID = Convert.ToInt32(_branchId);
+                _branchMst.BranchName = _branchName;
+                _branchMst.isActive = true;
+
+                if (_updationType == "update")
                 {
-                    _branchMst.BranchName = _branchName;
-                    _branchMst.isActive = true;
+                    _genericService.Update(_branchMst);
+                    returnValue = "Branch Updation Success.";
+                }
+                else if (_updationType == "add")
+                {
+                    _genericService.Insert(_branchMst);
+                    returnValue = "Adding new branch completes.";
+                }
+                else if (_updationType == "delete")
+                {
+                    _branchMst.isActive = false;
+                    _genericService.Delete(_branchMst.BranchID);
+                    returnValue = "Branch deleted complete.";
+                }
+                else if (_updationType == "updateDelete")
+                {
+                    _branchMst.isActive = false;
+                    _genericService.Update(_branchMst);
+                    returnValue = "Branch deleted.";
                 }
 
-                IGenericService<BranchMst> _genericService = new GenericService<BranchMst>();
-                _genericService.Insert(_branchMst);
-
-
-                obj = new { status = true, value = "New branch added.", error = string.Empty };
+                obj = new { status = true, value = returnValue, error = string.Empty };
             }
             catch (Exception ex)
             {
-                obj = new { status = false, value = "New branch fail to add.", error = ex.Message.ToString() };
+                obj = new { status = false, value = "Some system failure occured. Try after some time.", error = ex.Message.ToString() };
             }
-
             return Json(obj, JsonRequestBehavior.AllowGet);
         }
+
     }
 }

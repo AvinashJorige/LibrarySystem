@@ -74,10 +74,10 @@
           "name": "branch",
           "label": "Branch",
           "icon": "fa fa-sitemap",
-          "action": "#",
+          "action": "#",  
           "subMenuList": [
             {
-              "id": "2",
+              "id": "1",
               "name": "modify_branch",
               "label": "Modify Branchs",
               "action": "/Admin/AdminBranch/BranchList",
@@ -87,7 +87,14 @@
               "id": "2",
               "name": "list_branchs",
               "label": "List Branchs",
-              "action": "#",
+              "action": "/Admin/AdminBranch/BranchInfoList",
+              "parent_id": "3"
+            },
+            {
+              "id": "3",
+              "name": "branch_archive",
+              "label": "Branch archive",
+              "action": "/Admin/AdminBranch/BranchListarchevie",
               "parent_id": "3"
             }
           ]

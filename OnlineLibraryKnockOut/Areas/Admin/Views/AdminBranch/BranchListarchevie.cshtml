@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewBag.Title = "BranchListarchevie";
+    Layout = "~/Views/Shared/_LayoutBlankPage.cshtml";
+}
+
+@section scripts
+{
+    <script src="@Url.Content("~/Areas/Admin/scripts/menuDisplay.js")"></script>
+    <script src="@Url.Content("~/Areas/Admin/scripts/BranchScript.js")"></script>
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Branch Details
+    </h1>
+</section>
+<!-- Main content -->
+<section class="content" id="Add_new_Branch">
+    <form method="get">
+        <!-- ko if: BranchScripts.errorMessage -->
+        <div class="alert alert-warning alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h4><i class="icon fa fa-warning"></i> Alert!</h4>
+            <!-- ko text: BranchScripts.errorMessage --><!-- /ko-->
+        </div>
+        <!-- /ko -->
+        <!-- ko if: BranchScripts.successMessage -->
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h4><i class="icon fa fa-check"></i> Alert!</h4>
+            <!-- ko text: BranchScripts.successMessage --><!-- /ko-->
+        </div>
+        <!-- /ko -->
+
+        <div class="col-md-12">
+            <!-- Box Comment -->
+            <div class="box box-widget">
+                <div class="box-header with-border">
+                    <div class="user-block">
+                        <b>Branchs archive list</b>
+                    </div>
+                    <!-- /.user-block -->
+                    <div class="box-tools">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                    </div>
+                    <!-- /.box-tools -->
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body" style="display: block;">
+                    <div class="col-md-12">
+                        <table id="branchLists" class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Branch Name</th>
+                                    <th>Books Quantities</th>
+                                    <th>Total Student</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody data-bind="foreach: BranchScripts.arrayObjList">
+                                <tr data-bind="visible: !$data.BrchIsActive">
+                                    <td data-bind="text: $index"><span style="visibility:hidden" data-bind="text: $data.BrchId"></span></td>
+                                    <td><span data-bind="text: $data.BrchName"></span></td>
+                                    <td><span data-bind="text: $data.BksTotal"></span></td>
+                                    <td><span data-bind="text: $data.StdTotal"></span></td>
+                                    <td style="text-align:center"><a href="#" data-bind="click: $root.BranchScripts.activeBranch" class="label label-success">Activate Branch</a>&nbsp;&nbsp;
+                                    <a href="#" data-bind="click: $root.BranchScripts.deleteBranch" class="label label-danger">Delete</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+    </form>
+</section>
+<!-- /.content -->
