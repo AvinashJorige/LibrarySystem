@@ -1,12 +1,4 @@
-﻿ko.validation.rules.pattern.message = 'Invalid.';
-ko.validation.init({
-    messageTemplate: null,
-    errorElementClass: 'has-error',
-    errorMessageClass: 'help-block',
-    decorateInputElement: true
-}, true);
-
-var branchFnc = function () {
+﻿var branchFnc = function () {
     var self = this;
     var listData = fetchBranchList();
 
@@ -17,22 +9,37 @@ var branchFnc = function () {
     this.errorMessage = ko.observable();
     this.addSave = ko.observable(true);
     this.editSave = ko.observable(false);
-    this.arrayObjList = ko.observableArray();
+
     this.viewModel = ko.validatedObservable([
     this.BranchName.extend({
         required: {
             message: "Please enter branch name"
         }
     })]);
-    this.arrayObjList(listData);
-
-    $("#branchLists").DataTable();
+    this.bindingTable = ko.observable("branchLists");
+    
+    this.arrayObjList = ko.observableArray(listData);
+    $("#branchLists").DataTable({
+        responsive: true
+    });
+    //if (this.arrayObjList()) {
+    //    $("#branchLists").DataTable();
+    //}
 
     // Simply open the modal popup.
     this.openModal = function () {
         self.addSave(true);
         self.editSave(false);
         $('#newBranch').modal('show');
+    }
+
+    this.renderedHandler = function (elements, data) {
+        if (self.arrayObjList.indexOf(data) == self.arrayObjList().length-1) {
+            // Only now execute handler
+            $("#branchLists").DataTable({
+                responsive: true
+            });
+        }
     }
 
     //Validate the branch name textbox and fire the error event and adds the new branch name to the database.

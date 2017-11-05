@@ -160,6 +160,7 @@
     <Compile Include="Areas\Admin\Controllers\AdminBranchController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminHomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminPublicationsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminStudentInfoController.cs" />
     <Compile Include="Areas\Admin\Models\BranchListObjAreaModel.cs" />
     <Compile Include="Areas\Student\Controllers\stdHomeController.cs" />
     <Compile Include="Areas\Student\StudentAreaRegistration.cs" />
@@ -174,6 +175,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\scripts\BranchScript.js" />
+    <Content Include="Areas\Admin\scripts\StudentScript.js" />
     <Content Include="Content\customStyles.css" />
     <Content Include="plugins\dynatable\jquery.dynatable.css" />
     <Content Include="plugins\dynatable\jquery.dynatable.js" />
@@ -1188,6 +1190,10 @@
     <Content Include="Areas\Admin\Views\AdminBranch\BranchList.cshtml" />
     <Content Include="Areas\Admin\Views\AdminBranch\BranchInfoList.cshtml" />
     <Content Include="Areas\Admin\Views\AdminBranch\BranchListarchevie.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminStudentInfo\AddStudent.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminStudentInfo\ModifyStudents.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminStudentInfo\StudentList.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminStudentInfo\ArchivedStudents.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
