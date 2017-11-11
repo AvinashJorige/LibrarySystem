@@ -14,7 +14,7 @@
 <section class="content-header">
     <h1>
         Student info
-    </h1>   
+    </h1>
 </section>
 <!-- Main content -->
 <section class="content" id="StudentContainer">
@@ -38,56 +38,147 @@
 
             <!-- Box Comment -->
             <div class="box box-widget">
-                    <div class="box-header with-border">
-                        <div class="user-block">
-                            <b>Add Student</b>
-                        </div>
-                        <!-- /.user-block -->
-                        <div class="box-tools">
-                            <button type="button" class="btn btn-box-tool" data-widget="collapse">
-                                <i class="fa fa-minus"></i>
-                            </button>
-                        </div>
-                        <!-- /.box-tools -->
+                <div class="box-header with-border">
+                    <div class="user-block">
+                        <b>Add Student</b>
+                        <a href="/Admin/AdminStudentInfo/ModifyStudents" class="pull-right padding-5" style="padding-right:30px;">Students List</a>
                     </div>
-                    <!-- /.box-header -->
-                    <div class="box-body" style="display: block;">
-                        <div class="col-md-8 form-horizontal">
-                            <div class="form-group">
-                              
-                               <!-- ko switch:  -->
+                    <!-- /.user-block -->
+                    <div class="box-tools">
 
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                    </div>
+                    <!-- /.box-tools -->
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body" style="display: block;">
+                    <div class="has-error text-center">
+                        <h4 class="help-block"><b>Note : </b>All blocks are mandatory</h4>
+                    </div>
+                    <div class="col-md-8 form-horizontal">
+                        <div class="form-group" data-bind="validationElement: StudentScripts.stdName">
+                            <label for="stdName" class="col-sm-3 control-label">Student Name</label>
 
-
-                                <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-
-                                <div class="col-sm-10">
-                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-                                </div>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" data-bind="value: StudentScripts.stdName, valueUpdate: 'afterkeydown'" />
                             </div>
-                            <div class="form-group">
-                                <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-
-                                <div class="col-sm-10">
-                                    <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-                                </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8 form-horizontal">
+                        <div class="form-group" data-bind="validationElement: StudentScripts.stdBranch">
+                            <label for="stdBranch" class="col-sm-3 control-label">Branch</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" data-bind="options: StudentScripts.stdBranchList,  optionsText: 'BranchName', event:{ change: StudentScripts.selectBranch }, value: StudentScripts.stdBranch, valueUpdate: 'afterkeydown', optionsCaption: 'Choose...'"></select>
                             </div>
-                            <div class="form-group">
-                                <div class="col-sm-offset-2 col-sm-10">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox"> Remember me
-                                        </label>
+                        </div>
+                    </div>
+                    <div class="col-md-8 form-horizontal">
+                        <div class="form-group" data-bind="validationElement: StudentScripts.stdGender">
+                            <label for="stdGender" class="col-sm-3 control-label">Gender</label>
+
+                            <div class="col-sm-2">
+                                <input type="radio" value="male" name="gender" data-bind="checked: StudentScripts.stdGender, valueUpdate: 'afterkeydown'" /> Male
+                            </div>
+                            <div class="col-sm-3">
+                                <input type="radio" value="female" name="gender" data-bind="checked: StudentScripts.stdGender, valueUpdate: 'afterkeydown'" /> Female
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8 form-horizontal">
+                        <div class="form-group" data-bind="validationElement: StudentScripts.stdDob">
+                            <label for="stdDob" class="col-sm-3 control-label">Birth of Date</label>
+
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" data-bind="dateValue: StudentScripts.stdDob, valueUpdate: 'afterkeydown', customBinding: StudentScripts.stdDob" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8 form-horizontal">
+                        <div class="form-group" data-bind="validationElement: StudentScripts.stdMobile">
+                            <label for="stdMobile" class="col-sm-3 control-label">Mobile</label>
+
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" data-bind="value: StudentScripts.stdMobile, valueUpdate: 'afterkeydown'" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8 form-horizontal">
+                        <div class="form-group" data-bind="validationElement: StudentScripts.stdAddress">
+                            <label for="stdAddress" class="col-sm-3 control-label">Address</label>
+
+                            <div class="col-sm-9">
+                                <textarea type="text" rows="3" class="form-control" data-bind="value: StudentScripts.stdAddress, valueUpdate: 'afterkeydown'"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8 form-horizontal">
+                        <div class="form-group" data-bind="validationElement: StudentScripts.stdCity">
+                            <label for="stdCity" class="col-sm-3 control-label">City</label>
+
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" data-bind="value: StudentScripts.stdCity, valueUpdate: 'afterkeydown'" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8 form-horizontal">
+                        <div class="form-group" data-bind="validationElement: StudentScripts.stdPinCode">
+                            <label for="stdPinCode" class="col-sm-3 control-label">Pincode</label>
+
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" data-bind="value: StudentScripts.stdPinCode, valueUpdate: 'afterkeydown'" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8 form-horizontal">
+                        <div class="form-group" data-bind="validationElement: StudentScripts.stdPhoto">
+                            <label for="stdPhoto" class="col-sm-3 control-label">Photo</label>
+
+                            <div class="col-sm-9">
+                                <a href="" id="upload_widget_opener" data-bind="ifnot:StudentScripts.stdPhotoVisible, value: StudentScripts.stdPhoto, click: StudentScripts.uploadImage,  valueUpdate: 'afterkeydown'">Click here to upload the photo</a>
+                                @* for view and replacing the image purpose. *@
+                                <div class="responsive" data-bind="visible: StudentScripts.stdPhotoVisible">
+                                    <div class="gallery">
+                                        <span>
+                                            <img class="add-std-upload-image" data-bind="attr: { src:StudentScripts.stdPhoto, alt: 'Image'}" style="width:150px">
+                                        </span>
+                                        <div class="desc">
+                                            <a href="#" target="_blank" data-bind="attr: { href: StudentScripts.stdPhoto }" class="btn btn-xs btn-primary">View</a>
+                                            <a href="#" data-bind="click: StudentScripts.uploadImage" class="btn btn-xs btn-info">Replace</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- /.box-body -->
+                    <div class="col-md-8 form-horizontal">
+                        <div class="form-group" data-bind="validationElement: StudentScripts.stdEmail">
+                            <label for="stdEmail" class="col-sm-3 control-label">Email</label>
+
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" data-bind="value: StudentScripts.stdEmail, valueUpdate: 'afterkeydown'" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8 form-horizontal">
+                        <div class="form-group" data-bind="validationElement: StudentScripts.stdPassword">
+                            <label for="stdPassword" class="col-sm-3 control-label">Password</label>
+
+                            <div class="col-sm-9">
+                                <input type="password" class="form-control" data-bind="value: StudentScripts.stdPassword, valueUpdate: 'afterkeydown'" />
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <!-- /.box-body -->
+                <div class="modal-footer">
+                    <button type="reset" data-bind="reset: StudentScripts.onFormReset" class="btn btn-default pull-left">Cancel</button>
+                    <button type="submit" data-bind="enable: StudentScripts.isValid, click: StudentScripts.isValidForm" class="btn btn-info pull-right">Submit</button>
+                </div>
+            </div>
             <!-- /.box -->
         </div>
     </form>
 </section>
 <!-- /.content -->
-

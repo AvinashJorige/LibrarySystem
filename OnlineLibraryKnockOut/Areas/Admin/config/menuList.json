@@ -110,28 +110,28 @@
               "id": "1",
               "name": "add_new_student",
               "label": "Add Student",
-              "action": "/Admin/AdminStudent/AddStudent",
+              "action": "/Admin/AdminStudentInfo/AddStudent",
               "parent_id": "3"
             },
             {
               "id": "2",
               "name": "modify_students",
               "label": "Modify Students",
-              "action": "/Admin/AdminStudent/ModifyStudents",
+              "action": "/Admin/AdminStudentInfo/ModifyStudents",
               "parent_id": "3"
             },
             {
               "id": "3",
               "name": "list_students",
               "label": "List Students",
-              "action": "/Admin/AdminStudent/StudentList",
+              "action": "/Admin/AdminStudentInfo/StudentList",
               "parent_id": "3"
             },
             {
               "id": "4",
               "name": "archive_students",
               "label": "Archived Students",
-              "action": "/Admin/AdminStudent/ArchivedStudents",
+              "action": "/Admin/AdminStudentInfo/ArchivedStudents",
               "parent_id": "3"
             }
           ]

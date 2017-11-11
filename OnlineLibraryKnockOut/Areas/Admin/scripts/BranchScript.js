@@ -269,8 +269,3 @@ function fetchBranchList() {
 
     return arrayObjList;
 }
-
-$(document).ready(function () {
-
-    //$("#branchLists").dynatable();
-});

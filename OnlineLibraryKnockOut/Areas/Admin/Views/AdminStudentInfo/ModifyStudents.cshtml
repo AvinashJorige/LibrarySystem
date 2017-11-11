@@ -4,5 +4,188 @@
     Layout = "~/Views/Shared/_LayoutBlankPage.cshtml";
 }
 
-<h2>ModifyStudents</h2>
+@section scripts
+{
+    <script src="@Url.Content("~/Areas/Admin/scripts/menuDisplay.js")"></script>
+    <script src="@Url.Content("~/Areas/Admin/scripts/StudentScript.js")"></script>
+}
 
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Student info
+    </h1>
+</section>
+<!-- Main content -->
+<section class="content" id="StudentContainer">
+    <form method="get">
+        <!-- ko if: StudentScripts.errorMessage -->
+        <div class="alert alert-warning alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h4><i class="icon fa fa-warning"></i> Alert!</h4>
+            <!-- ko text: StudentScripts.errorMessage --><!-- /ko-->
+        </div>
+        <!-- /ko -->
+        <!-- ko if: StudentScripts.successMessage -->
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h4><i class="icon fa fa-check"></i> Alert!</h4>
+            <!-- ko text: StudentScripts.successMessage --><!-- /ko-->
+        </div>
+        <!-- /ko -->
+        <div class="row">
+            <div class="col-md-12" id="Branch_list_display">
+                <!-- Box Comment -->
+                <div class="box box-widget">
+                    <div class="box-header with-border">
+                        <div class="user-block">
+                            <b>Students List</b>
+                            <a href="/Admin/AdminStudentInfo/AddStudent" class="optional-user-block pull-right"> + Add Student</a>
+                        </div>
+                        <!-- /.user-block -->
+                        <div class="box-tools">
+                            <button type="button" class="btn btn-box-tool" data-bind="click: StudentScripts.reloadDatatable">
+                                <i class="fa fa-refresh"></i>
+                            </button>
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                <i class="fa fa-minus"></i>
+                            </button>
+                        </div>
+                        <!-- /.box-tools -->
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body" style="display: block;">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="dataTables_length" id="example1_length">
+                                    <label>
+                                        Show
+                                        <select aria-controls="example1" class="form-control input-sm search-quantity search-quantity-autoHide">
+                                            <option value="5">5</option>
+                                            <option value="10">10</option>
+                                            <option value="25">25</option>
+                                            <option value="50">50</option>
+                                        </select> entries
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-9">
+
+                                <div class="col-sm-2">&nbsp;</div>
+                                    <div class="col-sm-3" style="padding: 0 32px;">
+                                        <div id="example1_filter" class="dataTables_filter">
+                                            <label>
+                                                Status:
+                                              <select class="form-control" style="display: inline-block;" data-bind="options: StudentScripts.statusFilterList, optionsText: 'filterName', event:{ change: StudentScripts.filterStatus},  optionsValue: 'filterValue'"></select>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div id="example1_filter" class="dataTables_filter">
+                                            <label>
+                                                Branch:
+                                                <select class="form-control" style="display: inline-block;" data-bind="options: StudentScripts.stdBranchList,  optionsText: 'BranchName', event:{ change: StudentScripts.filterBranch }, value: StudentScripts.stdFilterBranch, optionsCaption: 'All'"></select>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div id="example1_filter" class="dataTables_filter">
+                                            <label>
+                                                Search:
+                                                <input type="search" id="search" class="form-control input-sm" placeholder="" aria-controls="example1">
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+
+                        <div class="no-padding table-Margin">
+                            <table class="table table-search table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Student Id</th>
+                                        <th>Student Name</th>
+                                        <th>Branch</th>
+                                        <th>Mobile</th>
+                                        <th>Date of Join</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <!-- ko foreach: {data: StudentScripts.stdStudentList }-->
+                                    <tr data-bind="click: autoToggle" style="cursor: pointer;">
+                                        <td><span data-bind="text: ($index() + 1)"></span></td>
+                                        <td><span data-bind="text: $data.SID"></span></td>
+                                        <td><span data-bind="text: $data.StudentName"></span></td>
+                                        <td><span data-bind="text: $data.BranchName"></span></td>
+                                        <td><span data-bind="text: $data.Mobile"></span></td>
+                                        <td><span data-bind="text: $data.EntryDate"></span></td>
+                                        <td>
+                                            <span class="label label-danger" data-bind="if: $data.isActive == false">In Active</span>
+                                            <span class="label label-success" data-bind="if: $data.isActive == true">Active</span>
+                                        </td>
+                                    </tr>
+                                    <tr data-bind="attr:{ id: 'autoHide_'+ $data.SID, class:'hide autoSlideUp'}">
+                                        <td colspan="7">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="col-md-2">
+                                                        <div class="img-Container">
+                                                            <img class="std-profile-Img" data-bind="attr:{ src: $data.Image}" alt="User profile picture">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-10">
+                                                        <div class="col-md-6">
+                                                            <ul class="list-group list-group-unbordered">
+                                                                <li class="list-group-item">
+                                                                    <b>Email : </b> <a data-bind="text: $data.Email" class="pull-right"></a>
+                                                                </li>
+                                                                <li class="list-group-item">
+                                                                    <b>Gender : </b> <a data-bind="text: $data.Gender" class="pull-right"></a>
+                                                                </li>
+                                                                <li class="list-group-item">
+                                                                    <b>Pin Code : </b> <a data-bind="text: $data.Pincode" class="pull-right"></a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <ul class="list-group list-group-unbordered">
+                                                                <li class="list-group-item padding-5">
+                                                                    <b>Date of birth : </b> <a data-bind="text: $data.DOB" class="pull-right"></a>
+                                                                </li>
+                                                                <li class="list-group-item padding-5">
+                                                                    <b>City : </b> <a data-bind="text: $data.City" class="pull-right"></a>
+                                                                </li>
+                                                                <li class="list-group-item padding-5">
+                                                                    <b>Address : </b> <a data-bind="text: $data.Address" class="pull-right"></a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- /ko -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                    <!-- /.box-footer -->
+                    <div class="box-footer" style="display: block;">
+                        <div class="pagination-container">
+
+                        </div>
+                    </div>
+                    <!-- /.box-footer -->
+                </div>
+                <!-- /.box -->
+            </div>
+        </div>
+    </form>
+</section>
+<!-- /.content -->

@@ -64,7 +64,7 @@ namespace OnlineLibraryKnockOut.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public JsonResult BranchModification(string _branchName, string _branchId, string _updationType)
+        public JsonResult BranchModification(string _branchName = null, string _branchId = null, string _updationType = null)
         {
             var obj = new { status = false, value = string.Empty, error = string.Empty };
             try
@@ -72,35 +72,92 @@ namespace OnlineLibraryKnockOut.Areas.Admin.Controllers
                 BranchMst _branchMst = new BranchMst();
                 IGenericService<BranchMst> _genericService = new GenericService<BranchMst>();
                 string returnValue = string.Empty;
+                bool statusBool = true;
+                string errorStr = string.Empty;
 
                 _branchMst.BranchID = Convert.ToInt32(_branchId);
                 _branchMst.BranchName = _branchName;
                 _branchMst.isActive = true;
 
+
                 if (_updationType == "update")
                 {
-                    _genericService.Update(_branchMst);
-                    returnValue = "Branch Updation Success.";
+                    if (_branchMst.BranchID != 0 && _branchMst.BranchName != null)
+                    {
+                        _genericService.Update(_branchMst);
+                        returnValue = "Branch Updation Success.";
+                    }
+                    else
+                    {
+                        returnValue = "Invalid Information.";
+                        errorStr = "false";
+                        statusBool = false;
+                    }
                 }
                 else if (_updationType == "add")
                 {
-                    _genericService.Insert(_branchMst);
-                    returnValue = "Adding new branch completes.";
+                    if (_branchMst.BranchName != null)
+                    {
+                        _genericService.Insert(_branchMst);
+                        returnValue = "Adding new branch completes.";
+                    }
+                    else
+                    {
+                        returnValue = "Invalid Information.";
+                        errorStr = "false";
+                        statusBool = false;
+                    }
                 }
                 else if (_updationType == "delete")
                 {
-                    _branchMst.isActive = false;
-                    _genericService.Delete(_branchMst.BranchID);
-                    returnValue = "Branch deleted complete.";
+                    if (_branchMst.BranchID != 0)
+                    {
+                        _branchMst.isActive = false;
+                        _genericService.Delete(_branchMst.BranchID);
+                        returnValue = "Branch deletion complete.";
+                    }
+                    else
+                    {
+                        returnValue = "Invalid Information.";
+                        errorStr = "false";
+                        statusBool = false;
+                    }
                 }
                 else if (_updationType == "updateDelete")
                 {
-                    _branchMst.isActive = false;
-                    _genericService.Update(_branchMst);
-                    returnValue = "Branch deleted.";
+                    if (_branchMst.BranchID != 0 && _branchMst.BranchName != null)
+                    {
+                        _branchMst.isActive = false;
+                        _genericService.Update(_branchMst);
+                        returnValue = "Branch deleted.";
+                    }
+                    else
+                    {
+                        returnValue = "Invalid Information.";
+                        errorStr = "false";
+                        statusBool = false;
+                    }
+                }
+                else if (_updationType == "getBranch")
+                {
+                    var rasd = _genericService.Get();
+                    returnValue = JsonConvert.SerializeObject(_genericService.Get());
+                }
+                else if(_updationType == "getById")
+                {
+                    if (_branchMst.BranchID != 0)
+                    {
+                        returnValue = _genericService.GetById(_branchId).ToString();
+                    }
+                    else
+                    {
+                        returnValue = "Invalid Information.";
+                        errorStr = "false";
+                        statusBool = false;
+                    }                    
                 }
 
-                obj = new { status = true, value = returnValue, error = string.Empty };
+                obj = new { status = statusBool, value = returnValue, error = errorStr };
             }
             catch (Exception ex)
             {

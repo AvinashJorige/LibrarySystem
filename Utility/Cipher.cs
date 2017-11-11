@@ -23,7 +23,7 @@ namespace Utility
 
         public string Decrypt(string encryptedText)
         {
-            return Encrypt(encryptedText, password);
+            return Decrypt(encryptedText, password);
         }
 
         /// <summary>

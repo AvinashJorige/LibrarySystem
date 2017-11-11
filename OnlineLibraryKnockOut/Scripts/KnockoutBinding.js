@@ -8,72 +8,24 @@ ko.validation.init({
     decorateInputElement: true
 }, true);
 
-
-// used for displaying the error message for the element
-ko.extenders.required = function (target, overrideMessage) {
-    //add some sub-observables to our observable
-    target.hasError = ko.observable();
-    target.validationMessage = ko.observable();
-
-    //define a function to do validation
-    function validate(newValue) {
-        target.hasError(newValue ? false : true);
-        target.validationMessage(newValue ? "" : overrideMessage || "This field is required");
-    }
-
-    //initial validation
-    validate(target());
-
-    //validate whenever the value changes
-    target.subscribe(validate);
-
-    //return the original observable
-    return target;
-};
-
-// Used for date time picker
-ko.bindingHandlers.datePicker = {
-    init: function (element, valueAccessor, allBindingsAccessor, viewModel) {
-        var unwrap = ko.utils.unwrapObservable;
-        var dataSource = valueAccessor();
-        var binding = allBindingsAccessor();
-        var options = {
-            keyboardNavigation: true,
-            todayHighlight: true,
-            autoclose: true,
-            daysOfWeekDisabled: [0, 6],
-            format: 'mm/dd/yyyy'
-        };
-        if (binding.datePickerOptions) {
-            options = $.extend(options, binding.datePickerOptions);
-        }
-        $(element).datepicker(options);
-        $(element).datepicker('update', dataSource());
-        $(element).on("changeDate", function (ev) {
-            var observable = valueAccessor();
-            if ($(element).is(':focus')) {
-                // Don't update while the user is in the field...
-                // Instead, handle focus loss
-                $(element).one('blur', function (ev) {
-                    var dateVal = $(element).datepicker("getDate");
-                    observable(dateVal);
-                });
-            }
-            else {
-                observable(ev.date);
-            }
-        });
-        //handle removing an element from the dom
-        ko.utils.domNodeDisposal.addDisposeCallback(element, function () {
-            $(element).datepicker('remove');
-        });
+// Used for date time picker/* Adds the binding dateValue to use with bootstra-datepicker */
+ko.bindingHandlers.dateValue = {
+    init: function (element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
+        var dpicker = $(element).datepicker({
+            format: "yyyy-mm-dd"
+        }).on('changeDate', function (ev) {
+                var newDate = new Date(ev.date);
+                var value = valueAccessor();
+                value(newDate);
+            });
     },
-    update: function (element, valueAccessor) {
-        var value = ko.utils.unwrapObservable(valueAccessor());
-        $(element).datepicker('update', value);
+    update: function (element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
+        var date = ko.utils.unwrapObservable(valueAccessor());
+        if (date) {
+            $(element).datepicker('setDate', date);
+        }
     }
-};
-
+}
 
 var bindObjects = {
     sideMenu: document.getElementById('sideMenuContainer') ? new MenuDisplayViewModel() : null,
@@ -83,8 +35,49 @@ var bindObjects = {
 
 $(document).ready(function () {
     bindingAll();
+    if ($(".search-quantity-autoHide").val() == 5) {
+        $('.table-search').load().tablePaginate({ navigateType: 'full', fullData: false, buttonPosition: 'after', navigateType: 'navigator', recordPerPage: 10 });
+    }
+    else {
+        $('.table-search').load().tablePaginate({ navigateType: 'full', fullData: false, buttonPosition: 'after', navigateType: 'navigator', recordPerPage: 5 });
+    }
+    
+    $('#search').keyup(function () {
+        search_table($(this).val());
+        if ($(this).val() == '') {
+            if ($(".search-quantity-autoHide").val() == 5) {
+                $('.table-search').load().tablePaginate({ navigateType: 'full', fullData: false, buttonPosition: 'after', navigateType: 'navigator', recordPerPage: 10 });
+            }
+            else {
+                $('.table-search').load().tablePaginate({ navigateType: 'full', fullData: false, buttonPosition: 'after', navigateType: 'navigator', recordPerPage: 5 });
+            }
+        }
+    });
 
-})
+    $(".search-quantity").change(function () {
+        var options = parseInt($(this).val()) * 2;
+
+        $('.table-search').load().tablePaginate({ navigateType: 'full', fullData: false, buttonPosition: 'after', navigateType: 'navigator', recordPerPage: (parseInt(options)) });
+    });
+
+});
+
+function search_table(value) {
+    $('.table-search tbody tr').each(function () {
+        var found = 'false';
+        $(this).each(function () {
+            if ($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0) {
+                found = 'true';
+            }
+        });
+        if (found == 'true') {
+            $(this).show();
+        }
+        else {
+            $(this).hide();
+        }
+    });
+}
 
 function bindingAll() {
     ko.applyBindings(bindObjects);

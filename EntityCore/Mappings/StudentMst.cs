@@ -46,5 +46,12 @@
         public string HashKey { get; set; }
 
         public DateTime? EntryDate { get; set; }
+
+        public StudentMst()
+        {
+            EntryDate = DateTime.Now;
+        }
+
+        public bool? isActive { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿body {    
+﻿body {
     font-family: pt_sansregular !important;
 }
 
@@ -26,6 +26,61 @@
 }
 
 .btn-white {
-    background-color:#fff;
-    color:#000;
+    background-color: #fff;
+    color: #000;
+}
+
+.add-std-upload-image {
+    border-radius: 4px;
+    width: 160px;
+    height: 150px;
+    padding: 5px;
+    margin: 5px 0px;
+    border: 1px solid #ccc;
+}
+
+    .add-std-upload-image:hover {
+        box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+    }
+
+.table-Margin {
+    margin-top: 10px;
+}
+
+    .table-Margin thead {
+        border-bottom: 3px solid #009688;
+    }
+
+.optional-user-block {
+    margin-right: 60px;
+    color: #fff;
+    font-weight: bolder;
+}
+
+.list-group-unbordered > .list-group-item {
+    padding: 10px 10px;
+}
+
+.std-profile-Img {
+    width: 170px;
+    height: 110px;
+}
+
+.img-Container {
+    border: 1px solid #ccc;
+    width: 180px;
+    height: 120px;
+    padding: 4px 4px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,.16), 0 2px 10px rgba(0,0,0,.12);
+}
+
+.btn.toggle-off, .btn.toggle-off:hover {
+    background: #dd4b39;
+    color: #fff;
+}
+
+.btn.toggle-on {
+    background: #00a65a;
+    color: #fff;
 }

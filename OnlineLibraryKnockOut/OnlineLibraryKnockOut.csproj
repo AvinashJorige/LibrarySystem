@@ -161,6 +161,7 @@
     <Compile Include="Areas\Admin\Controllers\AdminHomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminPublicationsController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminStudentInfoController.cs" />
+    <Compile Include="Areas\Admin\Controllers\StudentModelMst.cs" />
     <Compile Include="Areas\Admin\Models\BranchListObjAreaModel.cs" />
     <Compile Include="Areas\Student\Controllers\stdHomeController.cs" />
     <Compile Include="Areas\Student\StudentAreaRegistration.cs" />
@@ -174,6 +175,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\config\EmailTemplate.html" />
     <Content Include="Areas\Admin\scripts\BranchScript.js" />
     <Content Include="Areas\Admin\scripts\StudentScript.js" />
     <Content Include="Content\customStyles.css" />
